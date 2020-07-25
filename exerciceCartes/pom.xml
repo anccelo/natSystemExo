@@ -19,6 +19,10 @@
         <!-- Implementing -->
         <lombok.version>1.18.12</lombok.version>
 
+        <!-- Testing -->
+        <junit-jupiter.version>5.7.0-M1</junit-jupiter.version>
+        <mockito.version>3.1.0</mockito.version>
+
     </properties>
 
     <dependencies>
@@ -28,6 +32,20 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
