@@ -14,15 +14,6 @@ public class Carte implements Comparable<Carte> {
     }
 
     @Override
-    public String toString() {
-        String result = valeur.label + " de " + couleur + "\n";
-        if (valeur != Valeur.as)
-            return result;
-        else
-            return result + "\n";
-    }
-
-    @Override
     public int compareTo(Carte carte) {
         if (this.valeur == carte.valeur) {
             return 0;
@@ -32,4 +23,14 @@ public class Carte implements Comparable<Carte> {
             return -1;
         }
     }
+
+    @Override
+    public String toString() {
+        String result = valeur.label + " de " + couleur + "\n";
+        if (valeur != Valeur.as)
+            return result;
+        else
+            return result + "\n";
+    }
+
 }

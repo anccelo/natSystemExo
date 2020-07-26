@@ -1,8 +1,11 @@
 package model;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class JeuDeCarte {
 
     private List<Carte> paquet = new ArrayList<Carte>();
@@ -34,7 +37,4 @@ public class JeuDeCarte {
         return result.toString();
     }
 
-    public List<Carte> getPaquet() {
-        return paquet;
-    }
 }

@@ -19,7 +19,7 @@ public enum Valeur {
     public final String label;
     public final int value;
 
-    private Valeur(String label, int value) {
+    Valeur(String label, int value) {
         this.label = label;
         this.value = value;
     }

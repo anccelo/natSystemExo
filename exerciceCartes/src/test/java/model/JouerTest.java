@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(MockitoExtension.class)
 public class JouerTest {
 
-    private final Jouer jouer = new Jouer();
+    private final Joueur jouer = new Joueur("joeur1");
 
     @Mock
     Carte carteMock;
