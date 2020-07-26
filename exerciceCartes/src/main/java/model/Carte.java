@@ -26,11 +26,7 @@ public class Carte implements Comparable<Carte> {
 
     @Override
     public String toString() {
-        String result = valeur.label + " de " + couleur + "\n";
-        if (valeur != Valeur.as)
-            return result;
-        else
-            return result + "\n";
+        return valeur.label + " de " + couleur;
     }
 
 }

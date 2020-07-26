@@ -12,7 +12,7 @@ public class JeuDCarteTest {
 
     @Test
     void should_return_the_two_of_trefle_when_asked_first_card_of_paquet_of_jeuDeCarte() {
-        Carte actual = jeuDeCarte.getPaquet().get(0);
+        Carte actual = jeuDeCarte.getPaquet()[0];
         Couleur expectedCouleur = trefle;
         Valeur expectedValeur = deux;
         assertEquals(expectedValeur, actual.getValeur());
@@ -22,7 +22,7 @@ public class JeuDCarteTest {
     @Test
     void should_retun_fifty_two_when_count_card_into_paquets_of_jeuDeCarte() {
 
-        int actual = jeuDeCarte.getPaquet().size();
+        int actual = jeuDeCarte.getPaquet().length;
         int expected = 52;
 
         assertEquals(expected, actual);

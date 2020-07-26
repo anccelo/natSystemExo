@@ -42,35 +42,20 @@ public class Partie {
         }
     }
 
-    public void ajouterLesCartesAuxVainqueursDUnPli(final Pli pli, Carte carteGagnante, List<Joueur> jouersVinquers) {
+    public void ajouterLesCartesAuxVainqueursDUnPli(final Pli pli, List<Joueur> jouersVinquers) {
         if (jouersVinquers.size() == 0) {
-            System.err.println("there are a problem...");//todo
+            System.err.println("if you are here, there are a problem...");//todo exceptions
         } else if (jouersVinquers.size() == 1) {
             for (Carte carteDuPLi : pli.recupererLesCartesDuPLi(pli.getPli())) {
                 jouersVinquers.get(0).assignACard(carteDuPLi);
             }
         } else {
-            if (jouersVinquers.size() != 3) {
-                for (int i = 0; i < pli.recupererLesCartesDuPLi(pli.getPli()).size(); i++) {
-                    jouersVinquers.get(i % 2).assignACard(pli.recupererLesCartesDuPLi(pli.getPli()).get(i));
-                }
-            } else {//3 gagnants
-                jouersVinquers.get(0).assignACard(pli.recupererLesCartesDuPLi(pli.getPli()).get(0));
-                jouersVinquers.get(1).assignACard(pli.recupererLesCartesDuPLi(pli.getPli()).get(1));
-                jouersVinquers.get(2).assignACard(pli.recupererLesCartesDuPLi(pli.getPli()).get(2));
-                joueurAvecMoinsDeCartes(jouersVinquers).assignACard(pli.recupererLesCartesDuPLi(pli.getPli()).get(3));
+            for (int i = 0; i < pli.recupererLesCartesDuPLi(pli.getPli()).size(); i++) {
+                Random random = new Random();
+                int joueurRandom = random.nextInt(jouersVinquers.size() - 1);
+                jouersVinquers.get(joueurRandom).assignACard(pli.recupererLesCartesDuPLi(pli.getPli()).get(i));
             }
         }
-    }
-
-    public Joueur joueurAvecMoinsDeCartes(List<Joueur> desJoueurs) {
-        Joueur joueurMoinsCartes = desJoueurs.get(0);
-        for (Joueur joueur : desJoueurs) {
-            if (joueur.getCartes().size() <= joueurMoinsCartes.getCartes().size()) {
-                joueurMoinsCartes = joueur;
-            }
-        }
-        return joueurMoinsCartes;
     }
 
     public List<Joueur> joueursAvecPlusDeCartes() {
@@ -93,8 +78,8 @@ public class Partie {
     public void melangerJeuDeCarte() {
         Random random = new Random();
         for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < jeu.getPaquet().size(); j++) {
-                echanger(random.nextInt(jeu.getPaquet().size()), random.nextInt(jeu.getPaquet().size()));
+            for (int j = 0; j < jeu.getPaquet().length; j++) {
+                echanger(random.nextInt(jeu.getPaquet().length), random.nextInt(jeu.getPaquet().length));
             }
         }
     }
@@ -102,9 +87,9 @@ public class Partie {
     //J'ai trouvé les méthodes melanger et echanger sepuis une recherche sur Internet
     private void echanger(int i, int j) {
         Carte temp;
-        temp = jeu.getPaquet().get(i);
-        jeu.getPaquet().set(i, jeu.getPaquet().get(j));
-        jeu.getPaquet().set(j, temp);
+        temp = jeu.getPaquet()[i];
+        jeu.getPaquet()[i] = jeu.getPaquet()[j];
+        jeu.getPaquet()[j] = temp;
     }
 
 }

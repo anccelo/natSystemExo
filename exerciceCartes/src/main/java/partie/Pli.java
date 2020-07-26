@@ -12,10 +12,10 @@ import java.util.Map;
 @Getter
 public class Pli {
 
-    private Partie partie;
+    private final Partie partie;
     private Map<Joueur, Carte> pli;
 
-    public Pli(Partie partie) {
+    public Pli(final Partie partie) {
         this.partie = partie;
     }
 
@@ -31,7 +31,7 @@ public class Pli {
         return pli;
     }
 
-    public Carte determinerLaCartePLusForteDuPli(Map<Joueur, Carte> pli) {
+    public Carte determinerLaCartePLusForteDuPli(final Map<Joueur, Carte> pli) {
         List<Carte> cartesJouee = new ArrayList(pli.values());
         Carte bigerCarte = cartesJouee.get(0);
         for (Carte carte : cartesJouee) {
@@ -42,7 +42,7 @@ public class Pli {
         return bigerCarte;
     }
 
-    public List<Joueur> determinerLesJoueursGagnantes(Map<Joueur, Carte> pli, Carte carteGagnante) {
+    public List<Joueur> determinerLesJoueursGagnantes(final Map<Joueur, Carte> pli, final Carte carteGagnante) {
         List<Joueur> joueursGagnantes = new ArrayList<Joueur>();
         for (Joueur joueur : pli.keySet()
         ) {
@@ -53,8 +53,8 @@ public class Pli {
         return joueursGagnantes;
     }
 
-    public List<Carte> recupererLesCartesDuPLi(Map<Joueur, Carte> thisPli) {
-        return new ArrayList<Carte>(thisPli.values());
+    public List<Carte> recupererLesCartesDuPLi(final Map<Joueur, Carte> pliActuel) {
+        return new ArrayList<Carte>(pliActuel.values());
     }
 
 }

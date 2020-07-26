@@ -11,14 +11,14 @@ import java.util.Random;
 @Setter
 public class Joueur {
 
-    private String name;
+    private final String name;
     private final List<Carte> cartes = new ArrayList<Carte>();
 
-    public Joueur(String name) {
+    public Joueur(final String name) {
         this.name = name;
     }
 
-    public void assignACard(Carte cartes) {
+    public void assignACard(final Carte cartes) {
         this.cartes.add(cartes);
     }
 
