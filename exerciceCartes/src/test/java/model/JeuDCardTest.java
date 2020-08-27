@@ -2,21 +2,21 @@ package model;
 
 import org.junit.jupiter.api.Test;
 
-import static model.Couleur.trefle;
-import static model.Valeur.deux;
+import static model.Color.CLUBS;
+import static model.Value.TWO;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class JeuDCarteTest {
+public class JeuDCardTest {
 
     JeuDeCarte jeuDeCarte = JeuDeCarte.getInstance();
 
     @Test
     void should_return_the_two_of_trefle_when_asked_first_card_of_paquet_of_jeuDeCarte() {
-        Carte actual = jeuDeCarte.getPaquet()[0];
-        Couleur expectedCouleur = trefle;
-        Valeur expectedValeur = deux;
-        assertEquals(expectedValeur, actual.getValeur());
-        assertEquals(expectedCouleur, actual.getCouleur());
+        Card actual = jeuDeCarte.getPaquet()[0];
+        Color expectedColor = CLUBS;
+        Value expectedValue = TWO;
+        assertEquals(expectedValue, actual.getValue());
+        assertEquals(expectedColor, actual.getColor());
     }
 
     @Test

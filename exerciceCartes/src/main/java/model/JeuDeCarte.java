@@ -5,26 +5,26 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static model.Couleur.*;
+import static model.Color.*;
 
 @Getter
 public class JeuDeCarte {
 
-    private final Carte[] paquet = new Carte[52];
+    private final Card[] paquet = new Card[52];
 
     private JeuDeCarte() {
         int i = 0;
-        for (Couleur coleur : Couleur.values()) {
-            for (Valeur valuer : Valeur.values()
+        for (Color coleur : Color.values()) {
+            for (Value valuer : Value.values()
             ) {
-                paquet[i] = new Carte(coleur, valuer);
+                paquet[i] = new Card(coleur, valuer);
                 i++;
             }
         }
     }
 
     private static class JeuDeCarteHolder {
-        private final static JeuDeCarte instance = new JeuDeCarte();
+        private static final JeuDeCarte instance = new JeuDeCarte();
     }
 
     public static JeuDeCarte getInstance() {
@@ -32,19 +32,19 @@ public class JeuDeCarte {
     }
 
     public void printInColumns() {
-        List<Carte> trefles = new ArrayList<Carte>();
-        List<Carte> carreaux = new ArrayList<Carte>();
-        List<Carte> coeurs = new ArrayList<Carte>();
-        List<Carte> piques = new ArrayList<Carte>();
-        for (Carte carte : paquet) {
-            if (carte.getCouleur() == trefle)
-                trefles.add(carte);
-            if (carte.getCouleur() == carreau)
-                carreaux.add(carte);
-            if (carte.getCouleur() == coeur)
-                coeurs.add(carte);
-            if (carte.getCouleur() == pique)
-                piques.add(carte);
+        List<Card> trefles = new ArrayList<>();
+        List<Card> carreaux = new ArrayList<>();
+        List<Card> coeurs = new ArrayList<>();
+        List<Card> piques = new ArrayList<>();
+        for (Card card : paquet) {
+            if (card.getColor() == CLUBS)
+                trefles.add(card);
+            if (card.getColor() == DIAMONDS)
+                carreaux.add(card);
+            if (card.getColor() == HEARTS)
+                coeurs.add(card);
+            if (card.getColor() == SPADES)
+                piques.add(card);
         }
         for (int i = 0; i < 13; i++) {
             System.out.printf("%-20s %-20s %-20s %-20s\n", trefles.get(i), carreaux.get(i), coeurs.get(i),
