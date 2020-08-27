@@ -12,7 +12,7 @@ import java.util.Map;
 @Getter
 public class Pli {
 
-    private final Partie partie;
+    private final Partie partie;// est que a du sens ici? un pli ne doiv pas etre lié à une partie
     private Map<Joueur, Carte> pli;
 
     public Pli(final Partie partie) {

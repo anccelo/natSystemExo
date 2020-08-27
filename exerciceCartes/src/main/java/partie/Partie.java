@@ -12,13 +12,13 @@ import java.util.Random;
 @Getter
 public class Partie {
 
-    Joueur joueur1 = new Joueur("joueur1");
-    Joueur joueur2 = new Joueur("joueur2");
-    Joueur joueur3 = new Joueur("joueur3");
-    Joueur joueur4 = new Joueur("joueur4");
-    Joueur[] joueurs = {joueur1, joueur2, joueur3, joueur4};
+    private final Joueur joueur1 = new Joueur("joueur1");
+    private final Joueur joueur2 = new Joueur("joueur2");
+    private final Joueur joueur3 = new Joueur("joueur3");
+    private final Joueur joueur4 = new Joueur("joueur4");
+    public final Joueur[] joueurs = {joueur1, joueur2, joueur3, joueur4};
 
-    JeuDeCarte jeu = JeuDeCarte.getInstance();
+    public final JeuDeCarte jeu = JeuDeCarte.getInstance();
 
     public void distributionCartes() {
         int count = 1;
@@ -84,7 +84,7 @@ public class Partie {
         }
     }
 
-    //J'ai trouvé les méthodes melanger et echanger sepuis une recherche sur Internet
+    //J'ai trouvé les méthodes melanger et echanger depuis une recherche sur Internet
     private void echanger(int i, int j) {
         Carte temp;
         temp = jeu.getPaquet()[i];
